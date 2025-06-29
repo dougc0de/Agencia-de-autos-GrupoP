@@ -1,0 +1,191 @@
+/* ===============================================================
+   PALETA CORPORATIVA (se aplican vía CSS variables de Bootstrap)
+   =============================================================== */
+:root {
+  /* Rojo Casa Pellas (extraído del logotipo) */
+  --cp-red: #c8102e;
+  --cp-red-rgb: 200, 16, 46;
+
+  /* Gris oscuro para fondos y tipografía secundaria */
+  --cp-charcoal: #1b1f22;
+
+  /* Amarillo “acento” para hover / acción */
+  --cp-yellow: #ffc107;
+
+  /* Sobrescribimos variables de Bootstrap con nuestra paleta  */
+  --bs-primary: var(--cp-red);
+  --bs-primary-rgb: var(--cp-red-rgb);
+  --bs-dark: var(--cp-charcoal);
+  --bs-link-hover-color: var(--cp-yellow);
+}
+
+/* Fuente moderna y legible */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f7f8fc;
+  color: var(--cp-charcoal);
+  scroll-behavior: smooth;
+}
+
+/* ===============================================================
+   HEADER & NAVBAR
+   =============================================================== */
+.navbar {
+  background: linear-gradient(90deg, var(--cp-red) 0%, #8a0d1e 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.nav-link {
+  transition: color .35s ease;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--cp-yellow) !important;
+}
+
+/* ===============================================================
+   PILL MENU (Modelos 2025 / Catálogo …)
+   =============================================================== */
+.nav-pills .nav-link {
+  border-radius: 50rem;
+  transition: all .3s ease;
+  color: var(--cp-charcoal);
+}
+.nav-pills .nav-link.active {
+  background-color: var(--cp-red);
+  color: #fff;
+  box-shadow: 0 0.25rem 0.75rem rgba(var(--cp-red-rgb), .35);
+}
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: rgba(var(--cp-red-rgb), .1);
+}
+
+/* ===============================================================
+   ACCORDION
+   =============================================================== */
+.accordion-button {
+  transition: background-color .3s ease, color .3s ease;
+  font-weight: 500;
+}
+.accordion-button:hover {
+  background-color: #f1f2f4;
+  color: var(--cp-red);
+}
+/* Chevron animado */
+.accordion-button::after {
+  transition: transform .35s ease;
+}
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ===============================================================
+   CARDS (Catálogo de vehículos)
+   =============================================================== */
+.card {
+  border: none;
+  border-radius: .75rem;
+  overflow: hidden;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .15);
+}
+.card-img-top {
+  transition: transform .4s ease;
+}
+.card:hover .card-img-top {
+  transform: scale(1.08);
+}
+.card-title {
+  color: var(--cp-red);
+  font-weight: 600;
+}
+
+/* Botón primario con gradiente para destacar las CTAs */
+.btn-primary {
+  background: linear-gradient(135deg, var(--cp-red) 0%, #9e0f23 100%);
+  border: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(var(--cp-red-rgb), .35);
+}
+
+/* ===============================================================
+   CAROUSEL – transición cross-fade + overlay
+   =============================================================== */
+.carousel-item {
+  transition: opacity .6s ease-in-out;
+  opacity: 0;
+}
+.carousel-item.active,
+.carousel-item-next.carousel-item-start,
+.carousel-item-prev.carousel-item-end {
+  opacity: 1;
+}
+/* Overlay para asegurar contraste de textos/controles */
+.carousel-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, .45) 100%);
+}
+
+/* ===============================================================
+   FOOTER
+   =============================================================== */
+footer {
+  background: var(--cp-charcoal);
+  color: #ced4da;
+  text-align: center;
+  font-size: .9rem;
+  padding: 1rem 0;
+}
+
+/* ===============================================================
+   FORM SEARCH (Navbar)
+   =============================================================== */
+form[role="search"] .form-control {
+  border-radius: 50rem;
+}
+form[role="search"] .btn-outline-success {
+  --bs-btn-color: var(--cp-yellow);
+  --bs-btn-border-color: var(--cp-yellow);
+  --bs-btn-hover-bg: var(--cp-yellow);
+  --bs-btn-hover-color: #000;
+}
+
+
+.carousel-item img {
+  opacity: .80;                 /* atenuar imagen para resaltar CTA */
+  object-fit: cover;            /* asegura que la imagen llene bien el slide */
+  height: 420px;                /* alto fijo opcional, ajusta a tu gusto */
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, .45); /* panel translúcido para texto */
+  border-radius: .75rem;
+  padding: 1.5rem 2rem;
+  backdrop-filter: blur(2px);      /* sutil desenfoque de fondo */
+  animation: fadeUp .8s ease-in-out both; /* entrada suave */
+}
+
+/* animación de aparición */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+#botonam {
+    background-color: rgb(245, 245, 0);
+}
